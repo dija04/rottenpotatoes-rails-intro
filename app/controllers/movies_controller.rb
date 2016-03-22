@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    redirect = true
+    reirect = true
 
     @sort = params[:sort] ? params[:sort] : session[:sort]
 
@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
 
     redirect_to movies_path(sort:@sort, ratings:@ratings) if redirect
 
-     @movies = Movie.find(:all, conditions: { rating: @ratings.keys }, order: @sort)
+    @movies = Movie.find(:all, conditions: { rating: @ratings.keys }, order: @sort)
 
     session[:sort] = @sort
     session[:ratings] = @ratings
